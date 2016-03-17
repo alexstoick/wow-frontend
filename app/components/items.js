@@ -37,7 +37,7 @@ export default class Items extends React.Component {
             function(element, i) {
               console.log(element);
               return (
-                <div>
+                <div style={{float: 'left', margin: 10+'px', display:'inline-block'}}>
                   <Item item={element.Item} buy_price={element.BuyPrice}/>
                   <br/>
                   <br/>
