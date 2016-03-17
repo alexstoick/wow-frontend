@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+require('./main.scss');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -8,7 +9,7 @@ import Items from './components/items.js'
 import { Router, Route, browserHistory } from 'react-router'
 
 ReactDOM.render(
-    <Router >
+    <Router>
       <Route path="/items" component={Items}/>
       <Route path="/item/:itemId" component={ItemSummary}/>
       <Route path="/item/:itemId/crafts" component={CraftSummary}/>

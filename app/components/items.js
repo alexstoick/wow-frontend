@@ -1,19 +1,25 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
-import CraftItem from './craft_item.js';
-import ItemSummary from './item_summary.js';
+import Item from './item.js'
 
 export default class Items extends React.Component {
   constructor(props) {
     super(props)
     this.state = {}
-    this.state.itemIds = [110656, 113264]
+    this.state.itemIds = [
+      113263, 113262, 113261, 113264,
+      118472,
+      128018, 128010,
+      128012,
+      128013,
+      128014,
+    ]
     this.state.elements = []
   }
 
   async componentDidMount() {
     this.state.itemIds.map(async (itemId) => {
-    // for(let i=0; i< this.state.itemIds.length; ++i) {
+        console.log(itemId)
         const result = await fetch('http://82.196.11.214:3000/v1/items/' + itemId)
         const json = await result.json();
         console.log(json);
@@ -32,7 +38,9 @@ export default class Items extends React.Component {
               console.log(element);
               return (
                 <div>
-                  <ItemSummary item={element}/>
+                  <Item item={element.Item} buy_price={element.BuyPrice}/>
+                  <br/>
+                  <br/>
                 </div>
               )
             })

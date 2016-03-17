@@ -6,7 +6,7 @@ export default class Item extends React.Component {
     return (
       <div>
         Item Name: {this.props.item.ItemName}<br/>
-        Buy Price: <Price price={this.props.buy_price}/>
+        <div style={{float: 'left'}}>Buy Price: </div><Price price={this.props.buy_price}/>
       </div>
     );
   }

@@ -10,8 +10,6 @@ export default class CraftSummary extends React.Component {
   }
 
   async componentDidMount() {
-    console.log("lol")
-    itemId = this.props.itemId || this.props.params.itemId
     const result = await fetch('http://82.196.11.214:3000/v1/items/' + this.props.params.itemId + '/crafts')
     const json = await result.json();
     this.setState({summary: json});

@@ -11,11 +11,14 @@ export default class ItemSummary extends React.Component {
   }
 
   async componentDidMount() {
-    console.log("lol")
-    const result = await fetch('http://82.196.11.214:3000/v1/items/' + this.props.params.itemId)
-    const json = await result.json();
-    this.setState({summary: json});
-    console.log(json);
+    if(this.props.item) {
+      this.setState({summary: this.props.item})
+    } else {
+      const result = await fetch('http://82.196.11.214:3000/v1/items/' + this.props.params.itemId)
+        const json = await result.json();
+      this.setState({summary: json});
+      console.log(json);
+    }
   }
 
   render() {
@@ -28,7 +31,6 @@ export default class ItemSummary extends React.Component {
           buy_price={this.state.summary.BuyPrice}
           />
           <br/>
-
           {this.state.summary.Crafts.map(
             function(craft,i) {
               return <Craft craft={craft}/>

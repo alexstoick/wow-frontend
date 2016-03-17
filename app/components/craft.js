@@ -7,7 +7,7 @@ export default class Craft extends React.Component {
       <div style={{marginBottom: 10 + 'px'}}>
         Craft Name: {this.props.craft.Name}<br/>
         Profession: {this.props.craft.Profession}<br/>
-        Price: <Price price={this.props.craft.Price}/>
+        Craft Price: <Price price={this.props.craft.Price}/>
       </div>
     );
   }

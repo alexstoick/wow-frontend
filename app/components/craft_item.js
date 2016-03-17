@@ -7,7 +7,9 @@ export default class CraftItem extends React.Component {
     return (
       <div>
         <Item item={this.props.item.Item} buy_price={this.props.item.BuyPrice}/>
-        Craft price: <Price price={this.props.item.CraftPrice}/>
+        <br/>
+         <div style={{float: 'left'}}>Craft price: </div>
+         <Price price={this.props.item.CraftPrice}/>
         <br/>
       </div>
     );
