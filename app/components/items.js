@@ -1,7 +1,7 @@
 import React from 'react';
-import fetch from 'isomorphic-fetch'
-import CraftItem from './craft_item.js'
-
+import fetch from 'isomorphic-fetch';
+import CraftItem from './craft_item.js';
+import ItemSummary from './item_summary.js';
 
 export default class Items extends React.Component {
   constructor(props) {
@@ -12,12 +12,15 @@ export default class Items extends React.Component {
   }
 
   async componentDidMount() {
-    for(let i=0; i< this.state.itemIds.size; ++i) {
+    this.state.itemIds.map(async (itemId) => {
+    // for(let i=0; i< this.state.itemIds.length; ++i) {
         const result = await fetch('http://82.196.11.214:3000/v1/items/' + itemId)
         const json = await result.json();
-        let newElements = this.state.elements + json
+        console.log(json);
+        let newElements = this.state.elements;
+        newElements.push(json);
         this.setState({elements: newElements});
-    }
+    });
   }
 
   render() {
