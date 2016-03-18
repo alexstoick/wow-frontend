@@ -19,10 +19,8 @@ export default class Items extends React.Component {
 
   async componentDidMount() {
     this.state.itemIds.map(async (itemId) => {
-        console.log(itemId)
         const result = await fetch('http://82.196.11.214:3000/v1/items/' + itemId)
         const json = await result.json();
-        console.log(json);
         let newElements = this.state.elements;
         newElements.push(json);
         this.setState({elements: newElements});
@@ -35,10 +33,13 @@ export default class Items extends React.Component {
         <div>
           {this.state.elements.map(
             function(element, i) {
-              console.log(element);
               return (
-                <div style={{float: 'left', margin: 10+'px', display:'inline-block'}}>
-                  <Item item={element.Item} buy_price={element.BuyPrice}/>
+                <div style={{float: 'left', margin: 10+'px', display:'inline-block'}} key={'item' + i}>
+                  <Item
+                    item={element.Item}
+                    buy_price={element.BuyPrice}
+                    updated_at={element.UpdatedAt}
+                  />
                   <br/>
                   <br/>
                 </div>
