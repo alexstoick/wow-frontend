@@ -13,6 +13,10 @@ export default class Items extends React.Component {
       128012,
       128013,
       128014,
+      //herbs
+      109125, 109124, 109126, 109128, 109127, 109129,
+      //temporal crystal
+      113588
     ]
     this.state.elements = []
   }
