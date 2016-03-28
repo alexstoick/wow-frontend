@@ -19,6 +19,6 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({css:[ 'main.css']}),
-    new ExtractTextPlugin("main.css")
+    new ExtractTextPlugin("dist/main.css")
   ]
 }
