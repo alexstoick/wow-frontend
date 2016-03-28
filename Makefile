@@ -1,5 +1,4 @@
-all:
-	buildfile builddocker
+all: buildfile builddocker
 
 buildfile:
 	webpack
