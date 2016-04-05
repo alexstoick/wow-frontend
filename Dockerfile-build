@@ -1,0 +1,16 @@
+FROM node:latest
+
+RUN mkdir -p /usr/src/wow-frontend
+WORKDIR /usr/src/wow-frontend
+
+ADD ./package.json /usr/src/wow-frontend/package.json
+
+RUN npm install node-sass
+RUN npm install -g webpack
+RUN npm install
+
+ADD ./app /usr/src/wow-frontend/app
+ADD ./.babelrc /usr/src/wow-frontend/.babelrc
+ADD ./webpack.config.js /usr/src/wow-frontend/webpack.config.js
+
+RUN webpack
