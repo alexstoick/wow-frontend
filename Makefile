@@ -9,7 +9,6 @@ builddocker:
 create_ca:
 	sudo mkdir -p /etc/docker/certs.d/wow.stoica.xyz:5000
 	sudo mv ca.crt /etc/docker/certs.d/wow.stoica.xyz:5000/ca.crt
-	sudo cat /etc/docker/certs.d/wow.stoica.xyz:5000/ca.crt
 	sudo service docker restart
 
 ID=$(shell docker images -q wow_frontend_build)
