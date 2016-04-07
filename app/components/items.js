@@ -23,7 +23,7 @@ export default class Items extends React.Component {
 
   async componentDidMount() {
     this.state.itemIds.map(async (itemId) => {
-        const result = await fetch('http://82.196.11.214:3000/v1/items/' + itemId)
+        const result = await fetch('https://api.wow.stoica.xyz/v1/items/' + itemId)
         const json = await result.json();
         let newElements = this.state.elements;
         newElements.push(json);
