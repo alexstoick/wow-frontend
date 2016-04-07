@@ -6,11 +6,6 @@ buildfile:
 builddocker:
 	docker build -t wow_frontend_build:latest -f Dockerfile-build .
 
-create_ca:
-	sudo mkdir -p /etc/docker/certs.d/wow.stoica.xyz:5000
-	sudo mv ca.crt /etc/docker/certs.d/wow.stoica.xyz:5000/ca.crt
-	sudo service docker restart
-
 ID=$(shell docker images -q wow_frontend_build)
 
 rundocker:
@@ -21,8 +16,8 @@ mv_frontend:
 build_frontend:
 		docker build -t wow_frontend:latest .
 tag_and_push_frontend:
-		docker tag wow_frontend wow.stoica.xyz:5000/wow_frontend
-		docker push wow.stoica.xyz:5000/wow_frontend
+		docker tag wow_frontend registry.management.stoica.xyz/wow_frontend
+		docker push registry.management.stoica.xyz/wow_frontend
 
 killdocker:
 		docker stop wow_frontend_build
