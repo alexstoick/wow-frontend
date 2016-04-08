@@ -6,23 +6,13 @@ export default class Items extends React.Component {
   constructor(props) {
     super(props)
     this.state = {}
-    this.state.itemIds = [
-      113263, 113262, 113261, 113264,
-      118472,
-      128018, 128010,
-      128012,
-      128013,
-      128014,
-      //herbs
-      109125, 109124, 109126, 109128, 109127, 109129,
-      //temporal crystal
-      113588
-    ]
     this.state.elements = []
   }
 
   async componentDidMount() {
-    this.state.itemIds.map(async (itemId) => {
+    const result = await fetch('http://item-list.wow.stoica.xyz/v1/');
+    const json = await result.json();
+    json.map(async (itemId) => {
         const result = await fetch('https://api.wow.stoica.xyz/v1/items/' + itemId)
         const json = await result.json();
         let newElements = this.state.elements;
