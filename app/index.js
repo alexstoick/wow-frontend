@@ -14,7 +14,7 @@ ReactDOM.render(
       <Route path="/items" component={Items}/>
       <Route path="/item/:itemId" component={ItemSummary}/>
       <Route path="/item/:itemId/crafts" component={CraftSummary}/>
-      <Route path="/graph" component={Graph}/>
+      <Route path="/item/:itemId/graph" component={Graph}/>
     </Router>,
     document.body
 );

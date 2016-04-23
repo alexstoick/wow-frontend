@@ -18,9 +18,8 @@ export default class Graph extends React.Component {
     ];
   }
 
-
   async componentDidMount() {
-    const result = await fetch('http://82.196.11.214:3000/v1/items/118472/history_price');
+    const result = await fetch('http://82.196.11.214:3000/v1/items/' + this.props.params.itemId + '/history_price');
     const json = await result.json();
     let lineChartData = [];
     let barChartData = []
