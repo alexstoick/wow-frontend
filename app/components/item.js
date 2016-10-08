@@ -1,6 +1,7 @@
 import React from 'react';
 import Price from './price.js'
 var moment = require('moment');
+import { Link } from 'react-router'
 
 export default class Item extends React.Component {
   render() {
@@ -14,6 +15,8 @@ export default class Item extends React.Component {
                 moment(new Date(this.props.updated_at)),
                 'minutes'
             ) + ' minutes ago'}
+            <br/>
+        <Link to={`/item/${this.props.item.ItemID}/graph`}>Graph</Link>
       </div>
     );
   }

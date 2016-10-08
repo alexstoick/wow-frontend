@@ -25,6 +25,7 @@ export default class Items extends React.Component {
     if (this.state.elements) {
       return (
         <div>
+          <button className="back" onClick={this.props.history.goBack}>Back</button>
           {this.state.elements.map(
             function(element, i) {
               return (
